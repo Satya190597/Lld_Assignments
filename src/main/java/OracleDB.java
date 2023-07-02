@@ -1,9 +1,11 @@
 public class OracleDB {
     private static OracleDB oracleDBInstance;
-    private OracleDB() {}
+
+    private OracleDB() {
+    }
 
     public static OracleDB getInstance() {
-        if(oracleDBInstance==null)
+        if (oracleDBInstance == null)
             oracleDBInstance = new OracleDB();
         return oracleDBInstance;
     }

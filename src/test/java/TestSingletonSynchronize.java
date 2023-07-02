@@ -5,14 +5,13 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class TestSingletonEagerInstantiation {
-
+public class TestSingletonSynchronize {
     @Test
     public void testWithSingleThread() {
-        Set<OracleDBEagerInstantiation> instances = new HashSet<>();
+        Set<OracleDBSynchronize> instances = new HashSet<>();
 
         for (int i = 0; i < 100; i++) {
-            instances.add(OracleDBEagerInstantiation.getInstance());
+            instances.add(OracleDBSynchronize.getInstance());
         }
 
         Assertions.assertEquals(1, instances.size());
@@ -20,13 +19,13 @@ public class TestSingletonEagerInstantiation {
 
     @Test
     public void testWithMultiThread() throws InterruptedException {
-        Set<OracleDBEagerInstantiation> instances = Collections.synchronizedSet(new HashSet<>());
+        Set<OracleDBSynchronize> instances = Collections.synchronizedSet(new HashSet<>());
 
         // Create Runnable Class.
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                instances.add(OracleDBEagerInstantiation.getInstance());
+                instances.add(OracleDBSynchronize.getInstance());
             }
         };
 

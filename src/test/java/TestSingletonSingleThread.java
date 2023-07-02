@@ -40,8 +40,8 @@ public class TestSingletonSingleThread {
             thread.join();
         }
 
-        System.out.println("Number Of Threads "+instances.size());
+        System.out.println("Number Of Threads " + instances.size());
 
-        Assertions.assertTrue(instances.size()>=1);
+        Assertions.assertTrue(instances.size() >= 1);
     }
 }
